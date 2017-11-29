@@ -54,3 +54,13 @@ container!.
 * `docker stop` - gracefully stop a container, this can be started again later
 
 You can also nest docker commands like this `docker rm $(docker ps -aq)`.
+
+## Advanced Run Command
+
+New flags!
+
+* `--link` - Use this to connect containers
+  * `docker run --name wordpress --link mysql:mysql -p 8080:80 -d wordpress`
+* `-e` - is the environment variable aka `process.env` info.
+  * `docker run --name mysql -e MYSQL_ROOT_PASSWORD=password -d mysql`
+  * You can also chain `-e` flags if you have multiple env variables!
