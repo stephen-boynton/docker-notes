@@ -64,3 +64,15 @@ New flags!
 * `-e` - is the environment variable aka `process.env` info.
   * `docker run --name mysql -e MYSQL_ROOT_PASSWORD=password -d mysql`
   * You can also chain `-e` flags if you have multiple env variables!
+
+## Docker Volumes and Persistence
+
+* `-v` and `--volumes from` are the commands.
+* `docker run --name datastore -v /datatutorial -d busybox sleep 5000` - creates
+  empty folder `datatutorial`;
+* `docker run --name datastore2 -v /root:/datatutorial -d busybox sleep 5000` -
+  takes all of the data from `root` and puts it into `datatutorial`
+  * The files created in this `-v` are also created on the local machine.
+  * Multiple containers can share the same folder
+  * you can also add `:ro` after the `datatutorial` folder to make it only have
+    read-only permissions
