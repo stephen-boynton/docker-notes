@@ -75,4 +75,37 @@ New flags!
   * The files created in this `-v` are also created on the local machine.
   * Multiple containers can share the same folder
   * you can also add `:ro` after the `datatutorial` folder to make it only have
-    read-only permissions
+    readonly permissions
+
+## Docker Intermediate Skills
+
+### How to control a remote Docker Engine
+
+* `docker -H [ip address] [command]` - connects remotely
+
+### Portainer
+
+portianer.io -> install. This is a GUI for docker
+
+* `docker run -d -p 9000:9000 portainer/portainer` - if you don't give a name,
+  it'll create one.
+* login to portainer, name the docker instance and ip address and you have a
+  GUI!
+
+## Docker Swarm
+
+Clustering, orchestration!
+
+* Cluster - Group of servers that make sure that your website and services are
+  always available. If one goes down, you have more, or if one is in high
+  volume... etc.
+* Swarm - Orchestrator for containers - two types of nodes, worker and manager
+* Orchestrator - an application that makes sure that your software is always up
+  and running.
+* Manager nodes - which container should be put on, how and why? Minimum of
+  three managers, if one goes down you have two others. They are always in sync
+  with the lead Manager. A virtual machine
+* Worker nodes - Also a virtual machine. Holds the containers.
+
+Docker service create --> API -> Orchestrator --> Allocator --> scheduler -->
+dispatcher --> worker/executor
